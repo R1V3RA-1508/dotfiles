@@ -11,106 +11,30 @@
 
   // Positions
   "modules-left": [
-    //"custom/idle_inhibitor",
     "niri/workspaces", // workspaces
     "niri/window" // window title
   ],
 
   "modules-center": [
     "cpu",
-    //"custom/cpuinfo",
-    //"memory",
     "clock#time",
     "clock#date"
   ],
 
   "modules-right": [
-    "network", // network speed
-    //"tray",
-    "privacy",
-    "niri/language", // language indicator
+    "network",
+    "niri/language",
     "backlight",
     "pulseaudio",
-    "power-profiles-daemon",
-    //"battery",
     "custom/power" // power button
   ],
 
 
-  // Left modules
-  "custom/idle_inhibitor": {
-    "exec": "~/.config/waybar/scripts/idle-inhibitor.sh",
-    "on-click": "~/.config/waybar/scripts/idle-inhibitor.sh --toggle",
-    "return-type": "json",
-    "tooltip": true,
-    "interval": 10,
-    "min-length": 2,
-    "max-length": 2
-  },
-
-  "hyprland/workspaces": {
-    "all-outputs": false,
-    "active-only": false,
-    "on-click": "activate",
-    "disable-scroll": false,
-    "on-scroll-up": "hyprctl dispatch workspace -1",
-    "on-scroll-down": "hyprctl dispatch workspace +1",
-    "persistent-workspaces": {
-      "1": [ ],
-      "2": [ ],
-      "3": [ ],
-      "4": [ ],
-      "5": [ ]
-    },
-    "sort-by-number": true
-  },
-
-  "hyprland/window": {
-    "format": "{}",
-    "separate-outputs": true,
-    "icon": true,
-    "icon-size": 14,
-    "rewrite": {
-      // Desktop
-      "": " Hyprland",
-
-      // Security
-      "Authenticate": "  Authenticate"
-    },
-    "min-length": 3,
-    "max-length": 50
-  },
-
-
   // Central modules
   "cpu": {
-    //"exec": "~/.config/waybar/scripts/cpuusage.sh",
-    //"return-type": "json",
     "tooltip": false,
     "format": " {usage}%",
-    "interval": 5,
-    "min-length": 6,
-    "max-length": 6
-  },
-  "custom/cpuinfo": {
-    "exec": "~/.config/waybar/scripts/cpuinfo.sh",
-    "return-type": "json",
-    "format": "{}",
-    "tooltip": true,
-    "interval": 5,
-    "min-length": 6,
-    "max-length": 6
-  },
-
-  "memory": {
-    "states": {
-      "c": 90
-    },
-    "format": "󰘚 {percentage}%",
-    "format-c": "󰀪 {percentage}%",
-    "tooltip": true,
-    "tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB",
-    "interval": 5,
+    "interval": 1,
     "min-length": 6,
     "max-length": 6
   },
@@ -164,39 +88,6 @@
     "spacing": 8
   },
 
-  "privacy": {
-    "icon-spacing": 8,
-    "icon-size": 14,
-    "transition-duration": 250,
-    "modules": [
-      {
-        "type": "screenshare",
-        "tooltip": true,
-        "tooltip-icon-size": 20
-      },
-      {
-        "type": "audio-in",
-        "tooltip": true,
-        "tooltip-icon-size": 20
-      }
-    ],
-    "ignore": [
-      {
-        "type": "audio-in",
-        "name": "cava"
-      }
-    ]
-  },
-
-  "hyprland/language": {
-    "format": "󰇧 {}",
-    "format-en": "EN",
-    "format-ru": "RU",
-    "on-click": "hyprctl switchxkblayout current next",
-    "min-length": 4,
-    "max-length": 4
-  },
-
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 {volume}%",
@@ -211,65 +102,19 @@
     "tooltip": true,
     "tooltip-format": "Device: {desc}",
     "on-click": "pavucontrol",
-    "on-scroll-up": "~/.config/waybar/scripts/volumecontrol.sh -o i",
-    "on-scroll-down": "~/.config/waybar/scripts/volumecontrol.sh -o d",
+    "on-scroll-up": "pactl set-sink-volume 0 +1%",
+    "on-scroll-down": "pactl set-sink-volume 0 -1%",
     "min-length": 6,
     "max-length": 6
   },
 
   "backlight": {
-    //"exec": "~/.config/waybar/brightness.sh",
-    //"return-type": "json",
     "format": "󰃠 {percent}%",
-    //"tooltip": true,
-    //"on-scroll-up": "~/.config/waybar/brightness.sh -o i",
-    //"on-scroll-down": "~/.config/waybar//brightness.sh -o d",
     "interval": 1,
     "min-length": 6,
     "max-length": 6
   },
 
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
-    },
-    "min-length": 1,
-    "max-length": 1
-  },
-
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 20
-    },
-    "format": "{icon} {capacity}%",
-    "format-icons": [
-      "󰂎",
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
-    ],
-    "format-charging": "󱘖 {capacity}%",
-    "tooltip": true,
-    "tooltip-format": "Time to Empty: {time}",
-    "tooltip-format-charging": "Time to Full: {time}",
-    "interval": 5,
-    "min-length": 6,
-    "max-length": 6
-  },
 
   "custom/power": {
     "format": " ",
