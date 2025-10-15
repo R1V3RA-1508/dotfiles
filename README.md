@@ -1,4 +1,6 @@
-![](изображение.png)
+![](preview.png)
+![](./apps.png)
+![](./powermenu.png)
 
 # My Catppuccin Mocha colored rice
 
