@@ -8,3 +8,5 @@ Dependencies: niri, waybar, brightnessctl, pactl, networkmanager_dmenu, alacritt
 
 1. Move files from this repo to your home directory
 2. Replace "nik" in configs to your username (cfgs likebinds in niri)
+
+I use GTK apps like Thunar so i added Catppuccin theme. Command to apply it: ```gsettings set org.gnome.desktop.interface "catppuccin-mocha-mauve"```
