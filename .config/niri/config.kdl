@@ -267,7 +267,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "swww-daemon"
-spawn-at-startup "swww img ~/dark-forest.jpg"
+spawn-at-startup "swww img ~/1e1e2e.png"
 spawn-at-startup "waybar"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -382,7 +382,7 @@ binds {
     Super+E hotkey-overlay-title="Open Thunar" { spawn "thunar"; }
     Super+period hotkey-overlay-title="Open emote picker: emote" { spawn "emote"; }
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "~/.config/rofi/scripts/launcher_t3"; }
+    Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "~/.config/rofi/launchers/type-3/launcher.sh"; }
     Super+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     XF86MonBrightnessDown hotkey-overlay-title="Brightness -" { spawn "brightnessctl" "set" "10%-"; }
     XF86MonBrightnessUp hotkey-overlay-title="Brightness +" { spawn "brightnessctl" "set" "10%+"; }

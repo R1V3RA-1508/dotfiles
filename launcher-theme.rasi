@@ -1,0 +1,72 @@
+configuration{
+    drun-display-format: '{name}';
+  }
+
+window {
+    border-radius: 10px;
+    fullscreen: false;
+    location: center;
+    height: 43%;
+    width: 21%;
+    anchor: center;
+    transparency: "real";
+    background-color: transparent;
+}
+mainbox {
+    enabled:                     true;
+    spacing:                     5px;
+    location: center;
+    border:                      2px solid;
+    border-radius:               10px;
+    border-color:                #cba6f7;
+    background-color:            #1e1e2e;
+    children:                    [ "inputbar", "listview" ];
+}
+inputbar{
+    enabled: true;
+    background-color: #1e1e2e;
+    text-color: #1e1e2e;
+    highlight: #1e1e2e;
+    border: 0 0 2px 0 solid;
+    padding: 0 0 3px 0;
+    border-color: #cba6f7;
+    border-radius: 10px;
+    children:                    [ "prompt", "entry" ];
+}
+prompt{
+    text-color: #cdd6f4;
+    padding: 0 10px;
+    background-color: #1e1e2e;
+}
+entry{
+    text-color: #cdd6f4;
+    background-color: #1e1e2e;
+  }
+listview{
+    background-color: #1e1e2e;
+    border-radius: 50px;
+    padding: 13px;
+    spacing: 5px;
+    cycle: true;
+    dynamic: true;
+    location: center;
+}
+element{
+    padding: 10px 15px;
+    orientation: horizontal;
+    spacing: 25px;
+    background-color: #1e1e2e;
+    border-radius: 50px;
+}
+element selected {
+    border-color: #cba6f7;
+    border: 2px;
+}
+element-text{
+    text-color: #ffffff;
+    background-color: transparent;
+}
+element-icon{
+    text-color: #ffffff;
+    background-color: transparent;
+}
