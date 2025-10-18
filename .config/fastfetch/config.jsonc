@@ -1,23 +1,23 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
-    "type": "small",
-    "source": "",
+    "type": "kitty",
+    "source": "~/.config/fastfetch/boykisser1.jpg",
     "color": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-      "8": "",
-      "9": ""
+      "1": "#cba6f7",
+      "2": "#cba6f7",
+      "3": "#cba6f7",
+      "4": "#cba6f7",
+      "5": "#cba6f7",
+      "6": "#cba6f7",
+      "7": "#cba6f7",
+      "8": "#cba6f7",
+      "9": "#cba6f7"
     },
-    "width": null,
-    "height": null,
+    "width": 25,
+    "height": 10,
     "padding": {
-      "top": 0,
+      "top": 2,
       "left": 2,
       "right": 4
     },
@@ -38,7 +38,7 @@
     "hideCursor": false,
     "separator": ": ",
     "color": {
-      "keys": "",
+      "keys": "#cba6f7",
       "title": "",
       "output": "",
       "separator": ""
@@ -120,30 +120,72 @@
   },
   "modules": [
     {
+      "type": "custom",
+      "format": "┌──────────────────────────────────────────┐"
+    },
+    {
+      "type": "chassis",
+      "key": "  󰇺 Chassis",
+      "color": "#cba6f7",
+      "format": "{1} {2}"
+    },
+    {
       "type": "os",
-      "keyIcon": ""
+      "keyIcon": "",
+      "key": "  󰣇 OS",
+    },
+    {
+      "type": "kernel",
+      "key": "   Kernel",
+      "format": "{2}",
+    },
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────────────┘"
+    },
+    {
+      "type": "custom",
+      "format": "┌──────────────────────────────────────────┐"
     },
     {
       "type": "wm",
       "keyIcon": "",
+      "key": "  󱗃 WM",
       "detectPlugin": false
     },
     {
       "type": "cursor",
+      "key": "  󰆿 Cursor",
       "keyIcon": "󰆿"
     },
     {
       "type": "terminal",
-      "keyIcon": ""
+      "keyIcon": "",
+      "key": "   Terminal",
+    },
+    {
+      "type": "display",
+      "key": "  󰍹 Display",
+      "format": "{1}x{2} @ {3}Hz [{7}]",
+    },
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────────────┘"
+    },
+    {
+      "type": "custom",
+      "format": "┌──────────────────────────────────────────┐"
     },
     {
       "type": "cpu",
       "keyIcon": "",
+      "key": "   CPU",
       "temp": false,
       "showPeCoreCount": false
     },
     {
       "type": "memory",
+      "key": "   RAM",
       "keyIcon": "",
       "percent": {
         "green": 50,
@@ -153,6 +195,7 @@
     },
     {
       "type": "disk",
+      "key": "   Disk",
       "keyIcon": "",
       "showRegular": true,
       "showExternal": true,
@@ -170,5 +213,9 @@
         "type": 0
       }
     },
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────────────┘"
+    }
   ]
 }
