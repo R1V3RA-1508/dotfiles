@@ -22,6 +22,7 @@
   ],
 
   "modules-right": [
+    "battery",
     "network",
     "niri/language",
     "backlight",
@@ -106,6 +107,23 @@
     "on-scroll-down": "pactl set-sink-volume 0 -1%",
     "min-length": 6,
     "max-length": 6
+  },
+
+  "battery": {
+    "interval": 60,
+    "format": "{icon}{capacity}%",
+    "format-icons": ["󰁺 ", "󰁻 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰁿 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "],
+    "tooltip": true,
+    "tooltip-format": "Осталось: {time}\nЦиклов: {cycles}\nЁмкость: {health}",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "events": {
+      "on-charging-100": "notify-send Батарея заряжена",
+      "on-discharging-warning": "notify-send Внимание: осталось 30% заряда",
+      "on-discharging-critical": "notify-send СРОЧНО ЗАРЯДКУ ИЩИ ТУТ 15% ВСЕГО"
+    }
   },
 
   "backlight": {

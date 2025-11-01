@@ -4,9 +4,11 @@
 
 # My Catppuccin Mocha colored rice
 
-Dependencies: niri, waybar, brightnessctl, pactl, networkmanager_dmenu, kitty, swww, rofi, starship, pulseaudio, otf-font-awesome, noto-fonts-emoji, AdwaitaMono Nerd Font
+Dependencies: niri, hyprland, eww, waybar, brightnessctl, pactl, networkmanager_dmenu, kitty, swww, rofi, starship, pulseaudio, otf-font-awesome, noto-fonts-emoji, AdwaitaMono Nerd Font
 
-1. Move files from this repo to your home directory
-2. Replace "nik" in configs to your username (cfgs likebinds in niri)
+Just move files from this repo to your home directory
 
 I use GTK apps like Thunar so i added Catppuccin theme. Command to apply it: ```gsettings set org.gnome.desktop.interface "catppuccin-mocha-mauve"```
+
+02.11.25: I replaced niri with hyprscrolling. 
+1. Install official hyprland plugins using `hyprpm add https://github.com/hyprwm/hyprland-plugins` and enable hyprscrolling: `hyprpm enable hyprscrolling`

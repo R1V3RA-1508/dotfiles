@@ -18,10 +18,10 @@ window#waybar {
 }
 
 window#waybar > box {
-  margin: 5px 6px 0 6px;
+  margin: 5px 10px 0 10px;
   padding: 2px 0;
   background-color: @background;
-  border-radius: 15px;
+  border-radius: 10px;
   border: 2px solid @selected;
   opacity: 0.95;
 }
@@ -153,12 +153,13 @@ tooltip {
 
 /* Power Button */
 #custom-power {
-  padding-right: 3px;
+  padding-right: 4px;
   padding-left: 9px;
-  border-radius: 8px;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #custom-power:hover {
   background: @selected;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  color: @background; 
 }
