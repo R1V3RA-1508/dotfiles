@@ -1,0 +1,55 @@
+* {
+  all: unset;
+}
+
+* {
+  font-size: 150px;
+  font-family: "AdwaitaMono Nerd Font";
+  font-weight: bold;
+}
+
+.minute {
+  font-size: 150px;
+  color: #cba6f7;
+}
+
+.hour {
+  font-size: 150px;
+  color: #f5e0dc;
+}
+
+.second {
+  font-size: 50px;
+  color: #ed8796;
+}
+
+.small-date {
+  font-size: 35px;
+  color: #ed8796;
+}
+
+
+
+/** Uptime ********************************************/
+.icontimer {
+  color: #ed8796;
+
+  font-weight : bold;
+  font-size: 30px;
+
+}
+
+.uphour {
+  color: #f5bde6;
+  font-size : 25px;
+  font-weight : bold;
+
+}
+
+.upmin {
+  color: #a485dd; //#D46389; //#8FBCBB;
+  font-size : 25px;
+  font-weight : bold;
+
+}
+
