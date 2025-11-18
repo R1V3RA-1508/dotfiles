@@ -18,17 +18,18 @@ window#waybar {
 }
 
 window#waybar > box {
-  margin: 5px 10px 0 10px;
+  /*margin: 5px 10px 0 10px;*/
   padding: 2px 0;
   background-color: @background;
-  border-radius: 10px;
-  border: 2px solid @selected;
+  border-radius: 0px 0px 10px 10px;
+  border: 0px solid @selected; /* 2px solid @selected */
   opacity: 0.95;
 }
 
 /* -- Tooltip Styling -- */
 tooltip {
   background: @background;
+  margin-top: 10px;
   border: solid;
   border-width: 1px;
   border-radius: 10px;
@@ -52,6 +53,7 @@ tooltip {
 #custom-backlight,
 #power-profiles-daemon,
 #battery,
+#custom-weather,
 #custom-power {
   opacity: 1;
   padding: 0px 3px;

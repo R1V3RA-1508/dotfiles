@@ -11,17 +11,18 @@
 
   // Positions
   "modules-left": [
-    "niri/workspaces", // workspaces
-    "niri/window" // window title
+    "niri/workspaces" // workspaces
+    //"niri/window" // window title
   ],
 
   "modules-center": [
     "cpu",
     "clock#time",
-    "clock#date"
+    "clock#date" 
   ],
 
   "modules-right": [
+    "custom/weather",
     "battery",
     "network",
     "niri/language",
@@ -29,6 +30,11 @@
     "pulseaudio",
     "custom/power" // power button
   ],
+
+  "niri/window": {
+    "icon": true,
+    "format": "",
+  },
 
 
   // Central modules
@@ -110,7 +116,7 @@
   },
 
   "battery": {
-    "interval": 60,
+    "interval": 20,
     "format": "{icon}{capacity}%",
     "format-icons": ["󰁺 ", "󰁻 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰁿 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "],
     "tooltip": true,
@@ -140,5 +146,11 @@
     "on-click": "sh ~/powermenu.sh",
     "on-click-rightt": "~/.config/waybar/scripts/logoutlaunch.sh 1",
     "interval": 86400
-  }
+  },
+  "custom/weather": {
+      "exec": "python ~/weather.py",
+      "tooltip": false,
+      "restart-interval": 60,
+      "format": "󰖐 {}°C"
+  },
 }

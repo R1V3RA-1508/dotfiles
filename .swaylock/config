@@ -1,4 +1,4 @@
-image=~/walls-catppuccin-mocha/cool.jpg
+screenshots
 hide-keyboard-layout
 indicator-caps-lock
 key-hl-color=CBA6F7FF
@@ -16,6 +16,7 @@ ring-wrong-color=FF0000FF
 inside-wrong-color=1e1e2eFF
 text-wrong-color=FFFFFFFF
 
+scaling=center
 clock
 indicator
 effect-blur=7x5
