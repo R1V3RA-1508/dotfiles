@@ -11,8 +11,8 @@
 
   // Positions
   "modules-left": [
-    "niri/workspaces" // workspaces
-    //"niri/window" // window title
+    "niri/workspaces", // workspaces
+    "niri/window" // window title
   ],
 
   "modules-center": [
