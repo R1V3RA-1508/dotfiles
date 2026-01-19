@@ -18,7 +18,7 @@ input {
         }
 
         // Enable numlock on startup, omitting this setting disables it.
-        numlock
+        //numlock
     }
 
     // Next sections include libinput settings.
@@ -109,12 +109,11 @@ output "LDVS-1"{
     focus-at-startup
 }
 
-
-
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
+    // background-color "transparent"
     // Set gaps around windows in logical pixels.
     gaps 16
 
@@ -269,9 +268,10 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swww img ~/walls-catppuccin-mocha/minimalist-black-hole.png"
-spawn-at-startup "waybar"
+spawn-sh-at-startup "sleep 1.5; waybar"
+spawn-sh-at-startup "sh ~/scripts/niri-startup.sh"
+// uncomment next line and edit the script if you have problems with the order of your monitors
+// spawn-at-startup "sh ~/scripts/outputs-setting.sh"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -301,6 +301,15 @@ animations {
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     slowdown 3.0
+
+    window-open {
+      duration-ms 200 
+      curve "cubic-bezier" 0.05 0.7 0.1 1
+    }
+    window-close {
+      duration-ms 200 
+      curve "cubic-bezier" 0.05 0.7 0.1 0.5 // 0.55 -0.68 0.48 1.682
+    }
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -347,8 +356,19 @@ window-rule{
     clip-to-geometry true
 }
 layer-rule {
-    match namespace="^quickshell-overview$"
+    match namespace="^swww-daemonoback$"
     place-within-backdrop true
+}
+layer-rule {
+  match namespace="^swww-daemon$"
+  place-within-backdrop false
+  opacity 1.0
+}
+
+overview {
+    workspace-shadow {
+        off
+    }
 }
 
 debug {
@@ -374,6 +394,8 @@ debug {
     clip-to-geometry true
 }
 
+prefer-no-csd
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -390,15 +412,16 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Alt+F4 { spawn "sh" "/home/nik/powermenu.sh"; }
-    Alt+1 { spawn "firefox"; }
-    Alt+2 { spawn "code-oss"; }
-    Alt+3 { spawn "telegram-desktop"; }
-    Alt+4 { spawn "vesktop"; }
+    Alt+F4 { spawn "~/scripts/powermenu.sh"; }
+    Alt+1 { spawn "waterfox"; }
+    Alt+2 { spawn "vscodium"; }
+    Alt+3 { spawn "AyuGram"; }
+    Alt+4 { spawn "goofcord"; }
+    Alt+5 { spawn "firefox"; }
     Super+E hotkey-overlay-title="Open Thunar" { spawn "thunar"; }
     Super+period hotkey-overlay-title="Open emote picker: emote" { spawn "emote"; }
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "~/.config/rofi/launchers/type-3/launcher.sh"; }
+    Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "~/scripts/launcher.sh"; }
     Super+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     XF86MonBrightnessDown hotkey-overlay-title="Brightness -" { spawn "brightnessctl" "set" "10%-"; }
     XF86MonBrightnessUp hotkey-overlay-title="Brightness +" { spawn "brightnessctl" "set" "10%+"; }
@@ -640,4 +663,3 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
-spawn-at-startup "sh /home/nik/outputs-setting.sh"

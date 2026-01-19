@@ -1,7 +1,9 @@
+
 {
   "layer": "top",
   "position": "top",
   "mode": "dock",
+  "name": "main",
   // "height": 24, // uncomment to set fixed height
   "exclusive": true,
   "passthrough": false,
@@ -22,18 +24,22 @@
   ],
 
   "modules-right": [
+    "custom/spotify",
     "custom/weather",
     "battery",
-    "network",
+    //"network",
+    "tray",
     "niri/language",
     "backlight",
     "pulseaudio",
     "custom/power" // power button
   ],
 
-  "niri/window": {
-    "icon": true,
-    "format": "",
+  "niri/workspaces": {
+    "format": "{icon} ",
+    "format-icons": {
+      "default": ""
+    }
   },
 
 
@@ -95,6 +101,27 @@
     "spacing": 8
   },
 
+  /*"custom/spotify": {
+    "exec": "source /home/nik/.config/waybar/.env && spotifatius monitor",
+    "return-type": "json",
+    "format": "{icon} {text}",
+    "max-length": 20,
+    //"format-stopped": "󰝛 ",
+    //"format-paused": "{text}",
+    "format-icons": {
+      "default": "󰝚",
+      "paused": "󰏤",
+    },
+    "tooltip": true,
+    //"tooltip-format": "From \"{tooltip}\"",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "spotifatius toggle-liked",
+  },*/
+
+  "niri/language": {
+    "format": "{short}"
+  },
+
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 {volume}%",
@@ -126,9 +153,7 @@
       "critical": 15
     },
     "events": {
-      "on-charging-100": "notify-send Батарея заряжена",
-      "on-discharging-warning": "notify-send Внимание: осталось 30% заряда",
-      "on-discharging-critical": "notify-send СРОЧНО ЗАРЯДКУ ИЩИ ТУТ 15% ВСЕГО"
+      "on-charging-100": "notify-send Батарея заряжена"
     }
   },
 
@@ -144,13 +169,29 @@
     "format": " ",
     "tooltip": false,
     "on-click": "sh ~/powermenu.sh",
-    "on-click-rightt": "~/.config/waybar/scripts/logoutlaunch.sh 1",
+    "on-click-right": "pkill waybar; nohup waybar > /dev/null &", // restarts the waybar
     "interval": 86400
   },
   "custom/weather": {
-      "exec": "python ~/weather.py",
+      "exec": "python ~/scripts/weather.py",
       "tooltip": false,
       "restart-interval": 60,
       "format": "󰖐 {}°C"
   },
 }
+/*{
+    "layer": "top",
+    "position": "bottom",
+    "mode": "dock",
+    "name": "tskbr",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "reload_style_on_change": true,
+    "width": 50,
+    "modules-center": ["wlr/taskbar"],
+    "wlr/taskbar": {
+      "icon-size": 32,
+    }
+  }
+]*/

@@ -16,12 +16,17 @@
 window#waybar {
   background: transparent;
 }
+.tskbr > box{
+  border-radius: 10px 10px 0px 0px;
+  background-color: @background;
+  opacity: 0.95;
+}
 
-window#waybar > box {
+.main > box {
   /*margin: 5px 10px 0 10px;*/
   padding: 2px 0;
   background-color: @background;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px;
   border: 0px solid @selected; /* 2px solid @selected */
   opacity: 0.95;
 }
@@ -54,7 +59,8 @@ tooltip {
 #power-profiles-daemon,
 #battery,
 #custom-weather,
-#custom-power {
+#custom-power,
+#custom-spotify{
   opacity: 1;
   padding: 0px 3px;
   margin: 0px 6px;
@@ -72,35 +78,57 @@ tooltip {
 
 /* Workspaces */
 /* Workspace Button */
-#workspaces button {
-  color: @background;
-  border-radius: 8px;
-  margin: 2px 1px;
+/*#workspaces button {
+  font-size: 10px;
+  color: @selected;
+  background: @background;
+  border-radius: 10px;
+  border: 2px solid @selected;
+  margin: 2px;
   padding: 0 2px;
   animation: ws_normal 20s ease-in-out 1;
-}
+}*/
 
 /* Active Workspace Button */
-#workspaces button.active {
+/*#workspaces button.active {
   background: @selected;
-  margin-right: 2px;
-  margin-left: 2px;
-  padding: 0 5px;
   animation: ws_active 20s ease-in-out 1;
   transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}*/
+
+#workspaces button {
+    border-radius: 10px;
+    padding: 0 2px 0 5px;
+    background-color: transparent;
+    margin: 2px;
 }
+
+#workspaces button label {
+  color: @selected;
+  font-size: 10px;
+}
+
+#workspaces button.active { 
+    background-color: @selected;
+}
+
 #workspaces button.active label {
   color: @background;
 }
 
+
 /* Hover Effect for Workspace Buttons */
 #workspaces button:hover {
-  background: @selected;
-  animation: ws_hover 20s ease-in-out 1;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: rgba(255, 255, 255, 0.1);
 }
-#workspaces button:hover label{
-  color: @background;
+
+#workspaces button.active:hover label {
+  color: @selected;
+}
+#workspaces button:hover label {
+  color: inherit;
 }
 
 #window {
@@ -164,4 +192,8 @@ tooltip {
 #custom-power:hover {
   background: @selected;
   color: @background; 
+}
+
+#language{
+  margin-left: 0;
 }
