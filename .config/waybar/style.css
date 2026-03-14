@@ -1,8 +1,10 @@
-@define-color background      #1e1e2e;
-@define-color background-alt  #313244;
-@define-color foreground      #cdd6f4;
-@define-color selected        #cba6f7;
-@define-color active          #0F0F0F;
+@define-color background #1e1e2e;
+@define-color background-alt #313244;
+@define-color foreground #cdd6f4;
+@define-color selected #cba6f7;
+@define-color active #0F0F0F;
+
+@import url("file:///home/nik/.cache/wal/colors-waybar.css");
 
 /* -- Global Styling -- */
 * {
@@ -10,16 +12,22 @@
   font-family: "AdwaitaMono Nerd Font";
   font-weight: bold;
   font-size: 14px;
-  color: @foreground;
+  color: @color15;
 }
 
 window#waybar {
   background: transparent;
 }
 .tskbr > box{
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 0;
   background-color: @background;
   opacity: 0.95;
+}
+
+#tray {
+  border-radius: 10px 10px 0px 0px;
+  background-color: transparent;
+  opacity: 0.0;
 }
 
 .main > box {
@@ -38,7 +46,7 @@ tooltip {
   border: solid;
   border-width: 1px;
   border-radius: 10px;
-  border-color: @selected;
+  border-color: @color14;
 }
 
 /* -- General Module Styling -- */
@@ -96,7 +104,7 @@ tooltip {
   transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }*/
 
-#workspaces button {
+/*#workspaces button {
     border-radius: 10px;
     padding: 0 2px 0 5px;
     background-color: transparent;
@@ -114,21 +122,52 @@ tooltip {
 
 #workspaces button.active label {
   color: @background;
+}*/
+
+#workspaces {
+    margin: 0 5px;
 }
+
+#workspaces button {
+    padding: 0;
+    margin: 0px 4px;
+    min-height: 12px;
+    min-width: 18px;
+    background-color: transparent;
+}
+
+#workspaces button label {
+  color: @color13;
+  font-size: 15px;
+}
+
+#workspaces button.active label {
+  color: @color13;
+  font-size: 12px;
+}
+
+#workspaces button.active {
+    background-color: @color13;
+    border-radius: 10px;
+    margin: 10px 4px;
+    padding: 0;
+    min-width: 36px;
+}
+
 
 
 /* Hover Effect for Workspace Buttons */
 #workspaces button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255,255,255,0.1);
 }
 
 #workspaces button.active:hover label {
-  color: @selected;
+  color: @color13;
 }
 #workspaces button:hover label {
-  color: inherit;
+  color: @color13;
 }
 
 #window {
@@ -143,8 +182,9 @@ tooltip {
 
 /* Tray */
 #tray {
-  padding: 0 6px;
-  background: @background;
+  padding: 0 0px;
+  background: transparent;
+  margin-right: 15px;
 }
 
 #tray menu {
@@ -183,15 +223,21 @@ tooltip {
 
 /* Power Button */
 #custom-power {
-  padding-right: 4px;
-  padding-left: 9px;
-  border-radius: 10px;
+  margin-right: 0px;
+  padding-left: 12px;
+  border-radius: 100px;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  font-size: 24px;
 }
 
+
 #custom-power:hover {
-  background: @selected;
+  background: @cursor;
   color: @background; 
+}
+
+#taskbar button:hover {
+  background-color: @cursor;
 }
 
 #language{

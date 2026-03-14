@@ -1,4 +1,4 @@
 return {
     "microsoft/pyright",
-    "hhatto/autopep8",
+    "astral-sh/ruff",
 }

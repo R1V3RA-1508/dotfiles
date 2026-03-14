@@ -3,4 +3,4 @@
 -- Add any additional options here
 
 vim.g.autoformat = true
-vim.g.lazyvim_python_lsp = "basedpyright"
+vim.g.lazyvim_python_lsp = "pyright"
