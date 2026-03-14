@@ -1,16 +1,32 @@
+# My wal-based rice (fits any wallpaper)
+
 ![](preview.png)
 ![](apps.png)
 ![](powermenu.png)
 
-# My Catppuccin Mocha colored rice
+- Compositors: niri, hyprland
+- Status bar: waybar
+- Brightness manager: brightnessctl
+- Sound: pactl, pipewire, pipewire-pulse, wireplumber
+- Terminal: kitty
+- Shell: fish
+- Wallpapers daemon: swww
+- Menus: rofi
+- Firefox theming: pywalfox
+- Fonts: otf-font-awesome, noto-fonts-emoji, AdwaitaMono Nerd Font
 
-Dependencies: niri, waybar, brightnessctl, pactl, networkmanager_dmenu, kitty, swww, rofi, starship, pipewire, pipewire-pulse, wireplumber, otf-font-awesome, noto-fonts-emoji, AdwaitaMono Nerd Font
-
-Just move files from this repo to your home directory
+## Installation:
+```
+git clone https://github.com/r1v3ra-1508/dotfiles
+cd dotfiles
+mv -f ./* ~
+cd ..
+rm -r dotfiles
+```
 
 ## How to change wallpaper?
 > Open ~/scripts/niri-startup.sh. There you can change wall's filename, walls directory and blurred walls directory
 
-I use GTK apps like Thunar so i added Catppuccin theme. Command to apply it: ```gsettings set org.gnome.desktop.interface "catppuccin-mocha-mauve"```
-
-Check my Catppuccin Mocha theme for Firefox: [*click*](https://color.firefox.com/?theme=XQAAAAJ1AQAAAAAAAABBKYhm849SCia6aSqEGccwS-xMDPr3HHCUaapJkrAKdd4ot9fnLdQhLd1msGOtHxTKT40WxHZarvQrWhVrdB1YszU2kEbExh7Q_IMlNHGUGvSnnWDDZqb0arbW3R9xJ2A0NevaP2JbM4fDqRir_54N2SD_h2yrE3GPywTQAkPs_JlZKx_HAmvfYVNXpXjiBkQ1mvs-sW4Ik8zPoQ93wmKEKIUEBsN1ap4VpUmKMRn-EKInYdkb-5S4LDGIuaf_9dVh4A)
+## Notes:
+1. If you see "Unable to parse $color14 as a color", type "hyprctl reload" in terminal. It happens cuz hyprland loads faster then wal generates colors.
+2. Please, in `"default_path": "/home/nik/.themes/<THEME_NAME>"` in `.config/oomox/export_config/multi_export_wal-theme-apply.json` replace "nik" with your username. Else GTK theme won't generate.
