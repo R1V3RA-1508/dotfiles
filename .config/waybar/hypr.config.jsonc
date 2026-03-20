@@ -1,0 +1,242 @@
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "mode": "dock",
+    "name": "main",
+    "height": 24, // uncomment to set fixed height
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "reload_style_on_change": true,
+
+
+    // Positions
+    "modules-left": [
+      "hyprland/workspaces", // workspaces
+      "hyprland/window" // window title
+    ],
+
+    "modules-center": [
+      // "cpu",
+      "clock#time",
+      "clock#date" 
+    ],
+
+    "modules-right": [
+      "custom/playerctl",
+      "custom/weather",
+      "battery",
+      "network",
+      "bluetooth",
+      //"tray",
+      "hyprland/language",
+      "backlight",
+      "pulseaudio"
+      // "custom/power" // power button
+    ],
+
+    "hyprland/workspaces": {
+      "format": "{icon} ",
+      "format-icons": {
+        "default": ""
+      }
+    },
+
+
+    // Central modules
+
+    "clock#time": {
+      "format": "󱑂 {:%H:%M}",
+      "tooltip": true,
+      "tooltip-format": "12-hour Format: {:%I:%M %p}",
+      "min-length": 7,
+      "max-length": 7
+    },
+
+    "clock#date": {
+      "format": "󰨳 {:%d.%m}",
+      "tooltip-format": "<tt>{calendar}</tt>",
+      "calendar": {
+        "mode": "month",
+        "mode-mon-col": 4,
+        "on-click-right": "mode",
+        "format": {
+          "today": "<span color='#a6e3a1'><b>{}</b></span>"
+        }
+      },
+      "actions": {
+        "on-click-right": "mode",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+      },
+      "min-length": 7,
+      "max-length": 7
+    },
+
+
+    // Right modules
+    "network": {
+      "interface": "*0",
+      "interval": 5,
+      "format": "{icon}",
+      "format-icons": ["󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+      //"format-alt": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+      "format-disconnected": "󰤭 ",
+      //"tooltip-format": "  {ifname} \n {bandwidthUpBytes}  {bandwidthDownBytes}",
+      "tooltip-format-wifi": "󰖩 {essid}\n󰘊 {signalStrength}% \n {bandwidthUpBytes}  {bandwidthDownBytes}",
+      "tooltip-format-disconnected": "Disconnected",
+      "on-click": "exec nm-connection-editor",
+      "max-length": 24
+    },
+
+    "bluetooth": {
+      "format": "{icon} ",
+      "format-icons": {
+        "default": "󰂯",
+        "disabled": "󰂲",
+        "connected": "󰂱",
+      },
+      "tooltip": "true",
+      "tooltip-format-connected": "󰂱 {device_alias}\n󰥈 {device_battery_percentage}%",
+      "tooltip-format-disabled": "Disabled",
+      "on-click": "blueman-manager"
+    },
+
+    "tray": {
+      "icon-size": 18,
+      "rotate": 0,
+      "spacing": 8
+    },
+
+    /*"custom/spotify": {
+      "exec": "source /home/nik/.config/waybar/.env && spotifatius monitor",
+      "return-type": "json",
+      "format": "{icon} {text}",
+      "max-length": 20,
+      //"format-stopped": "󰝛 ",
+      //"format-paused": "{text}",
+      "format-icons": {
+        "default": "󰝚",
+        "paused": "󰏤",
+      },
+      "tooltip": true,
+      //"tooltip-format": "From \"{tooltip}\"",
+      "on-click": "playerctl play-pause",
+      "on-click-right": "spotifatius toggle-liked",
+    },*/
+
+    "hyprland/language": {
+      "format": "{short}"
+    },
+
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-muted": "󰝟 {volume}%",
+      "format-icons": {
+        "headphone": "󰋋",
+        "default": [
+          "󰕿",
+          "󰖀",
+          "󰕾"
+        ]
+      },
+      "tooltip": true,
+      "tooltip-format": "Device: {desc}",
+      "on-click": "pavucontrol",
+      "on-scroll-up": "pactl set-sink-volume 0 +1%",
+      "on-scroll-down": "pactl set-sink-volume 0 -1%",
+      "min-length": 6,
+      "max-length": 6
+    },
+
+    "battery": {
+      "interval": 10,
+      "format": "{icon}{capacity}%",
+      "format-icons": ["󰁺 ", "󰁻 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰁿 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "],
+      "tooltip": true,
+      "tooltip-format": "Осталось: {time}\nЦиклов: {cycles}\nЁмкость: {health}",
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "events": {
+        "on-charging-100": "notify-send Батарея заряжена"
+      }
+    },
+
+    "backlight": {
+      "format": "󰃠 {percent}%",
+      "interval": 1,
+      "min-length": 6,
+      "max-length": 6
+    },
+
+    "custom/playerctl": {
+      "exec": "/home/nik/scripts/playerctl.sh",
+      "return-type": "json",
+      "tooltip": true,
+      "interval": 5,
+      "on-click": "playerctl play-pause"
+    },
+
+    "custom/weather": {
+        "exec": "python ~/scripts/weather.py",
+        "tooltip": false,
+        "restart-interval": 60,
+        "format": "󰖐 {}°C"
+    },
+  },
+  {
+      "layer": "overlay",
+      "position": "bottom",
+      "mode": "dock",
+      "name": "tskbr",
+      "exclusive": true,
+      "passthrough": true,
+      "gtk-layer-shell": true,
+      "reload_style_on_change": true,
+      "height": 40,
+      // "width": 100,
+      // "modules-center": ["wlr/taskbar", "custom/splitter", "tray"],
+      "modules-left": ["custom/power", "custom/splitter", "wlr/taskbar"],
+      "modules-center": ["cpu", "memory", "disk"],
+      "modules-right": ["custom/splitter", "tray"],
+      "cpu": {
+        "tooltip": false,
+        "format": " {usage}%",
+        "interval": 1,
+        "min-length": 6,
+        "max-length": 6
+      },
+      "memory": {
+        "format": " {percentage}%",
+        "interval": 1,
+        "min-length": 6,
+        "max-length": 6
+      },
+      "disk": {
+        "interval": 30,
+        "unit": "GB",
+        "format": " {percentage_free}% ({specific_free:0.0f} GB)",
+        "tooltip-format": "Used: {percentage_used}% ({specific_used:0.1f} GB)"
+      },
+      "custom/power": {
+        "format": "󰣇 ", //" ",
+        "tooltip": false,
+        "on-click": "sh ~/scripts/powermenu.sh",
+        "on-click-right": "pkill waybar; nohup waybar > /dev/null &" // restarts the waybar
+      },
+      "wlr/taskbar": {
+        "icon-size": 32,
+        "on-click": "activate"
+      },
+      "custom/splitter": {
+        "format": " | "
+      },
+      "tray": {
+        "icon-size": 24
+      }
+    }
+]
+
