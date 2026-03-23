@@ -13,6 +13,7 @@
 - Wallpapers daemon: swww
 - Menus: rofi
 - Firefox theming: pywalfox
+- GTK theme generator: themix-full-git (from AUR)
 - Fonts: otf-font-awesome, noto-fonts-emoji, AdwaitaMono Nerd Font
 
 ## Installation:
